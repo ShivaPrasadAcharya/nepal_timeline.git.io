@@ -123,15 +123,13 @@ const CategoryIcon = ({ category }) => {
   );
 };
 
-const HoverCard = ({ description, title, onMouseEnter, onMouseLeave }) => {
+const HoverCard = ({ description, title, isHovered }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   
+  if (!isHovered) return null;
+  
   return (
-    <div 
-      className="absolute left-full top-0 ml-4 md:w-80 w-64 z-20"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
+    <div className="absolute left-full top-0 ml-4 md:w-80 w-64 z-20">
       <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
         <div className="flex justify-between items-center mb-3">
           <h4 className="font-semibold text-sm text-gray-600">
@@ -162,8 +160,8 @@ const HoverCard = ({ description, title, onMouseEnter, onMouseLeave }) => {
   );
 };
 
-const TimelineEntry = ({ data, isActive, onClick, index }) => {
-  const [showHover, setShowHover] = useState(false);
+const TimelineEntry = ({ data, isActive, onClick, index, language }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative group">
@@ -187,13 +185,14 @@ const TimelineEntry = ({ data, isActive, onClick, index }) => {
                 : 'bg-white hover:bg-gray-50 border-gray-200'
             } border rounded-lg p-4 flex items-center gap-4`}
             onClick={onClick}
-            onMouseEnter={() => setShowHover(true)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <CategoryIcon category={data.category} />
             <div>
               <div className="font-bold text-lg mb-1">{data.year}</div>
               <div className={`text-sm ${isActive ? 'text-blue-800' : 'text-gray-600'}`}>
-                {data.title.en}
+                {language === 'en' ? data.title.en : data.title.ne}
               </div>
             </div>
           </div>
@@ -201,22 +200,20 @@ const TimelineEntry = ({ data, isActive, onClick, index }) => {
           {/* Mobile view: Description expands below */}
           <div className={`md:hidden mt-2 transition-all duration-300 ${isActive ? 'block' : 'hidden'}`}>
             <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-              <div className="mb-2 font-medium text-gray-700">{data.description.en}</div>
-              <div className="text-gray-600">{data.description.ne}</div>
+              <div className="mb-2 font-medium text-gray-700">
+                {language === 'en' ? data.description.en : data.description.ne}
+              </div>
             </div>
           </div>
 
           {/* Desktop view: Hover card */}
-          {showHover && (
-            <div className="hidden md:block">
-              <HoverCard 
-                description={data.description} 
-                title={data.title}
-                onMouseEnter={() => setShowHover(true)}
-                onMouseLeave={() => setShowHover(false)}
-              />
-            </div>
-          )}
+          <div className="hidden md:block">
+            <HoverCard 
+              description={data.description} 
+              title={data.title}
+              isHovered={isHovered}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -261,6 +258,7 @@ function App() {
                 isActive={index === activeIndex}
                 onClick={() => setActiveIndex(index)}
                 index={index}
+                language={language}
               />
             ))}
           </div>
