@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Globe2, Info } from 'lucide-react';
+import { Globe2, Info, RefreshCw } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
+// TimelineData array 
 const timelineData = [
   {
     year: "Rana Period | राणा काल",
@@ -101,25 +102,6 @@ const timelineData = [
   }
 ];
 
-// Custom Flip Icon component
-const FlipIcon = ({ className = "w-4 h-4" }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M8 3H5a2 2 0 0 0-2 2v3" />
-    <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
-    <path d="M3 16v3a2 2 0 0 0 2 2h3" />
-    <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
-  </svg>
-);
-
 const CategoryIcon = ({ category }) => {
   const iconClass = "w-6 h-6";
   const getColor = () => {
@@ -141,30 +123,40 @@ const CategoryIcon = ({ category }) => {
   );
 };
 
-const HoverCard = ({ description, title, isLeft }) => {
+const HoverCard = ({ description, title }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   
   return (
-    <div className={`absolute top-0 ${isLeft ? 'right-full mr-2' : 'left-full ml-2'} w-72 pointer-events-auto`}>
-      <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="font-semibold text-sm text-gray-600">
-            {isFlipped ? 'नेपाली' : 'English'}
-          </h4>
-          <button 
-            onClick={() => setIsFlipped(!isFlipped)}
-            className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Switch language"
-          >
-            <FlipIcon className="w-4 h-4 text-gray-600" />
-          </button>
-        </div>
-        <div className="relative min-h-[60px]">
-          <div className={`transition-all duration-300 ${isFlipped ? 'opacity-0' : 'opacity-100'}`}>
-            <p className="text-sm text-gray-700">{description.en}</p>
+    <div className="absolute left-full ml-6 top-0 w-80">
+      <div className={`transform transition-all duration-700 ${
+        isFlipped ? 'rotate-y-180' : ''
+      } preserve-3d`}>
+        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+          <div className="flex justify-between items-center mb-3">
+            <h4 className="font-semibold text-sm text-gray-600">
+              {isFlipped ? 'नेपाली' : 'English'}
+            </h4>
+            <button 
+              onClick={() => setIsFlipped(!isFlipped)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors group"
+              aria-label="Switch language"
+            >
+              <RefreshCw className={`w-5 h-5 text-blue-600 transition-transform duration-500 ${
+                isFlipped ? 'rotate-180' : ''
+              }`} />
+            </button>
           </div>
-          <div className={`absolute top-0 left-0 w-full transition-all duration-300 ${isFlipped ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-sm text-gray-700">{description.ne}</p>
+          <div className="relative perspective-1000">
+            <div className={`transition-all duration-700 ${
+              isFlipped ? 'opacity-0' : 'opacity-100'
+            }`}>
+              <p className="text-gray-700">{description.en}</p>
+            </div>
+            <div className={`absolute top-0 left-0 w-full transition-all duration-700 ${
+              isFlipped ? 'opacity-100' : 'opacity-0'
+            }`}>
+              <p className="text-gray-700">{description.ne}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -172,40 +164,47 @@ const HoverCard = ({ description, title, isLeft }) => {
   );
 };
 
-const TimelineEntry = ({ data, isActive, onClick, index, totalEntries }) => {
+const TimelineEntry = ({ data, isActive, onClick, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const showOnLeft = index > totalEntries / 2;
 
   return (
     <div 
-      className="relative group"
+      className="relative group flex items-start gap-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div 
-        className={`cursor-pointer transition-all duration-300 ${
-          isActive 
-            ? 'bg-blue-100 border-blue-500 shadow-md transform scale-102' 
-            : 'bg-gray-50 hover:bg-gray-100 border-gray-200'
-        } border rounded-lg p-4 mb-3 flex items-center gap-3`}
-        onClick={onClick}
-      >
-        <CategoryIcon category={data.category} />
-        <div className="flex-1">
-          <div className="font-bold text-lg">{data.year}</div>
-          <div className={`text-sm ${isActive ? 'text-blue-800' : 'text-gray-600'}`}>
-            {data.title.en}
+      {/* Timeline connector */}
+      <div className="absolute left-5 top-10 bottom-0 w-0.5 bg-gray-200" />
+      
+      {/* Year bubble */}
+      <div className={`relative z-10 w-10 h-10 rounded-full flex items-center justify-center ${
+        isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-600'
+      }`}>
+        {index + 1}
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 pb-8">
+        <div 
+          className={`cursor-pointer transition-all duration-300 ${
+            isActive 
+              ? 'bg-blue-50 border-blue-500 shadow-md' 
+              : 'bg-white hover:bg-gray-50 border-gray-200'
+          } border rounded-lg p-4 flex items-center gap-4`}
+          onClick={onClick}
+        >
+          <CategoryIcon category={data.category} />
+          <div>
+            <div className="font-bold text-lg mb-1">{data.year}</div>
+            <div className={`text-sm ${isActive ? 'text-blue-800' : 'text-gray-600'}`}>
+              {data.title.en}
+            </div>
           </div>
         </div>
+
+        {/* Description card */}
+        {isHovered && <HoverCard description={data.description} title={data.title} />}
       </div>
-      
-      {isHovered && (
-        <HoverCard 
-          description={data.description}
-          title={data.title}
-          isLeft={showOnLeft}
-        />
-      )}
     </div>
   );
 };
@@ -219,26 +218,28 @@ function App() {
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-gradient-to-br from-blue-50 to-purple-50">
-      <CardContent className="p-8">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            {language === 'en' ? 
-              'Public Service Reforms in Nepal' : 
-              'नेपालमा सार्वजनिक सेवा सुधार'
-            }
-          </h2>
-          <button 
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300"
-          >
-            <Globe2 className="w-5 h-5" />
-            {language === 'en' ? 'नेपाली' : 'English'}
-          </button>
-        </div>
-        
-        <div className="relative max-w-xl mx-auto">
-          <div className="space-y-2">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
+      <Card className="w-full max-w-4xl mx-auto">
+        <CardContent className="p-8">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              {language === 'en' ? 
+                'Public Service Reforms in Nepal' : 
+                'नेपालमा सार्वजनिक सेवा सुधार'
+              }
+            </h2>
+            <button 
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200"
+            >
+              <Globe2 className="w-5 h-5 text-blue-600" />
+              <span className="font-medium">
+                {language === 'en' ? 'नेपाली' : 'English'}
+              </span>
+            </button>
+          </div>
+          
+          <div className="relative max-w-3xl mx-auto">
             {timelineData.map((entry, index) => (
               <TimelineEntry
                 key={entry.year}
@@ -246,13 +247,12 @@ function App() {
                 isActive={index === activeIndex}
                 onClick={() => setActiveIndex(index)}
                 index={index}
-                totalEntries={timelineData.length}
               />
             ))}
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 
