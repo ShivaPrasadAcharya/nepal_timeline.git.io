@@ -99,7 +99,7 @@ const timelineData = [
       ne: "नागरिक एप्स, मेरो कित्ता, लोक सेवा आयोगको मोबाइल एप्स र अनलाइन सेवाहरूको कार्यान्वयन।"
     },
     category: "digital"
-  }
+  },
 ];
 
 const CategoryIcon = ({ category }) => {
