@@ -101,21 +101,7 @@ const timelineData = [
     category: "digital"
   },
 ];
-// TimelineData array remains the same...
-const timelineData = [
-  {
-    year: "Rana Period | राणी काल",
-    title: {
-      en: "Introduction of Public Complaint Boxes",
-      ne: "सार्वजनिक उजुरी पेटिकाको सुरुवात"
-    },
-    description: {
-      en: "Dev Shamsher introduced complaint boxes in public places to hear public grievances directly.",
-      ne: "देव शम्शेरले सार्वजनिक स्थलहरूमा उजुरी पेटिका राखी जनगुनासा आफैले सुनुवाइ गर्न थालेका थिए।"
-    },
-    category: "complaint"
-  },
-];
+
 const CategoryIcon = ({ category }) => {
   const iconClass = "w-5 h-5"; // Reduced icon size
   const getColor = () => {
