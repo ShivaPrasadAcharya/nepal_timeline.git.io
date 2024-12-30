@@ -3,7 +3,7 @@ import { Globe2, Info, Languages } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 // TimelineData array remains the same...
-const timelineData = [
+const publicServiceData = [
   {
     year: "Rana Period | राणा काल",
     title: {
@@ -101,7 +101,93 @@ const timelineData = [
     category: "digital"
   },
 ];
+// Timeline data for Judicial Reforms
+  const judicialReformsData = {
+    title: {
+      en: 'Judicial Reforms in Nepal',
+      ne: 'नेपालमा न्यायिक सुधार'
+    },
+    data: [
+      {
+        year: "1951 | २००८",
+        title: {
+          en: "Independent Judiciary",
+          ne: "स्वतन्त्र न्यायपालिका"
+        },
+        description: {
+          en: "Establishment of independent judiciary after the end of Rana regime",
+          ne: "राणा शासनको अन्त्यपछि स्वतन्त्र न्यायपालिकाको स्थापना"
+        },
+        category: "governance"
+      },
+      {
+        year: "1990 | २०४७",
+        title: {
+          en: "Constitutional Reforms",
+          ne: "संवैधानिक सुधार"
+        },
+        description: {
+          en: "New constitution established independent judiciary as a pillar of democracy",
+          ne: "नयाँ संविधानले स्वतन्त्र न्यायपालिकालाई लोकतन्त्रको स्तम्भको रूपमा स्थापित गर्यो"
+        },
+        category: "administration"
+      },
+      {
+        year: "2007 | २०६४",
+        title: {
+          en: "Interim Constitution",
+          ne: "अन्तरिम संविधान"
+        },
+        description: {
+          en: "Interim Constitution introduced significant judicial reforms and restructuring",
+          ne: "अन्तरिम संविधानले महत्वपूर्ण न्यायिक सुधार र पुनर्संरचना ल्यायो"
+        },
+        category: "governance"
+      },
+      {
+        year: "2015 | २०७२",
+        title: {
+          en: "New Judicial Structure",
+          ne: "नयाँ न्यायिक संरचना"
+        },
+        description: {
+          en: "Implementation of three-tier court system under new constitution",
+          ne: "नयाँ संविधान अन्तर्गत तीन तहको अदालत प्रणालीको कार्यान्वयन"
+        },
+        category: "administration"
+      },
+      {
+        year: "2016 | २०७३",
+        title: {
+          en: "Judicial Committees",
+          ne: "न्यायिक समिति"
+        },
+        description: {
+          en: "Establishment of judicial committees in local levels",
+          ne: "स्थानीय तहमा न्यायिक समितिको स्थापना"
+        },
+        category: "service"
+      },
+      {
+        year: "2019 | २०७६",
+        title: {
+          en: "Digital Courts",
+          ne: "डिजिटल अदालत"
+        },
+        description: {
+          en: "Introduction of online case filing and digital court management system",
+          ne: "अनलाइन मुद्दा दर्ता र डिजिटल अदालत व्यवस्थापन प्रणालीको शुरुवात"
+        },
+        category: "digital"
+      }
+    ]
+  };
 
+  // Combine both timelines
+  const timelines = [
+    publicServiceData,
+    judicialReformsData
+  ];
 const CategoryIcon = ({ category }) => {
   const iconClass = "w-5 h-5"; // Reduced icon size
   const getColor = () => {
