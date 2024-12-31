@@ -12,18 +12,126 @@ const timelineGroups = {
     },
     data: [
       // Original timeline data here...
+ {
+    year: "Rana Period | राणा काल",
+    title: {
+      en: "Introduction of Public Complaint Boxes",
+      ne: "सार्वजनिक उजुरी पेटिकाको सुरुवात"
+    },
+    description: {
+      en: "Dev Shamsher introduced complaint boxes in public places to hear public grievances directly.",
+      ne: "देव शम्शेरले सार्वजनिक स्थलहरूमा उजुरी पेटिका राखी जनगुनासा आफैले सुनुवाइ गर्न थालेका थिए।"
+    },
+    category: "complaint"
+  },
+  {
+    year: "1957 | २०१४",
+    title: {
+      en: "Work Efficiency Committee",
+      ne: "कार्य शीघ्र कारक समिति"
+    },
+    description: {
+      en: "King Mahendra established 'Quick Action Committee Act 2014' under Major General Yog Bikram Rana.",
+      ne: "राजा महेन्द्रले 'कार्य शीघ्र कारक समिति ऐन, २०१४' जारी गरी मेजर जनरल योग विक्रम राणाको अध्यक्षतामा एक समिति गठन।"
+    },
+    category: "administration"
+  },
+  {
+    year: "1961 | २०१८",
+    title: {
+      en: "Monitoring Teams",
+      ne: "दौडाहा टोली"
+    },
+    description: {
+      en: "King Mahendra deployed inspection teams and established 'Investigation Center' under Crown Prince.",
+      ne: "राजा महेन्द्रले दौडाहा टोली खटाई सेवा वितरणको निगरानी र दरबारमा 'जाँचबुझ केन्द्र' खडा।"
+    },
+    category: "monitoring"
+  },
+  {
+    year: "1975 | २०३२",
+    title: {
+      en: "District Administration Plan",
+      ne: "जिल्ला प्रशासन योजना"
+    },
+    description: {
+      en: "Implementation of 'District Administration Plan 2031' introducing Single Clearing House concept.",
+      ne: "'जिल्ला प्रशासन योजना, २०३१' लागू गरेर Single Clearing House को अवधारणाको थालनी।"
+    },
+    category: "administration"
+  },
+  {
+    year: "1999 | २०५६",
+    title: {
+      en: "Citizen Charter Initiative",
+      ne: "नागरिक बडापत्रको सुरुवात"
+    },
+    description: {
+      en: "Introduction of 'Income for Poor, Justice for Helpless' directive and first Citizen Charter.",
+      ne: "'गरिबलाई आय निमुखालाई न्याय' नाम दिएर सार्वजनिक सेवा सुधारको निर्देशिका र पहिलो नागरिक बडापत्र।"
+    },
+    category: "governance"
+  },
+  {
+    year: "2002 | २०५९",
+    title: {
+      en: "Mobile Service Implementation",
+      ne: "घुम्ती सेवाको सुरुवात"
+    },
+    description: {
+      en: "Introduction of 'Mobile Service' during Maoist conflict to deliver services in remote areas.",
+      ne: "माओवादी द्वन्द्वको समयमा 'घुम्ती सेवा' सञ्चालन गरी सेवा वितरणको पहुँच विस्तार।"
+    },
+    category: "service"
+  },
+  {
+    year: "2007 | २०६४",
+    title: {
+      en: "Good Governance Act",
+      ne: "सुशासन ऐन"
+    },
+    description: {
+      en: "Implementation of Good Governance Act 2064 institutionalizing Citizen Charter and public hearings.",
+      ne: "सुशासन ऐन, २०६४ जारी गरी नागरिक बडापत्र, सार्वजनिक सुनुवाइ र क्षतिपूर्तिको प्रावधान।"
+    },
+    category: "governance"
+  },
+  {
+    year: "Present | वर्तमान",
+    title: {
+      en: "Digital Governance",
+      ne: "डिजिटल शासन"
+    },
+    description: {
+      en: "Implementation of e-governance through Nagarik Apps, Mero Kitta, and PSC Mobile App.",
+      ne: "नागरिक एप्स, मेरो कित्ता, लोक सेवा आयोगको मोबाइल एप्स र अनलाइन सेवाहरूको कार्यान्वयन।"
+    },
+    category: "digital"
+  },
     ]
   },
-  education: {
-    id: 'education',
-    title: {
-      en: 'Education Reforms in Nepal',
-      ne: 'नेपालमा शिक्षा सुधार'
+ education: {
+  id: 'education',
+  title: {
+    en: 'Education Reforms in Nepal',
+    ne: 'नेपालमा शिक्षा सुधार'
+  },
+  data: [
+    {
+      year: "1951 | २००८",
+      title: {
+        en: "Nepal National Educational Planning Commission",
+        ne: "नेपाल राष्ट्रिय शिक्षा योजना आयोग"
+      },
+      description: {
+        en: "First systematic planning for education in Nepal",
+        ne: "नेपालमा शिक्षाको पहिलो व्यवस्थित योजना"
+      },
+      category: "planning"
     },
-    data: [
-      // Add education timeline data...
-    ]
-  }
+    // Add more entries...
+  ]
+}
   // Add more timeline groups as needed
 };
 
