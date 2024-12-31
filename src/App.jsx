@@ -128,7 +128,7 @@ const timelineGroups = {
         ne: "नेपालमा शिक्षाको पहिलो व्यवस्थित योजना"
       },
       category: "planning"
-    },
+    }
     // Add more entries...
   ]
 }
