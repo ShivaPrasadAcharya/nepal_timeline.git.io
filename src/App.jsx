@@ -109,10 +109,10 @@ const timelineGroups = {
   }
     ]
   },
-  administrationReform: {
-    id: 'administrationReform',
+  administrativeReform: {
+    id: 'administrativeReform',
     title: {
-      en: 'Administration Reforms in Nepal',
+      en: 'Administrative Reforms in Nepal',
       ne: 'नेपालमा प्रशासन सुधार'
     },
     data: [
@@ -411,7 +411,135 @@ ne: "• अध्यक्ष: पूर्व मुख्य सचिव ड
 category: "pay-commission"
 }
     ]
+  },
+ attorneyGeneral: {
+    id: 'attorneyGeneral',
+    title: {
+      en: 'Historical Development of Attorney General in Nepal',
+      ne: 'नेपालमा सार्वजनिक सेवा सुधार'
+    },
+    data: [
+  {
+    "year": "1947 | २००४",
+    "title": {
+      "en": "First Constitutional Provision",
+      "ne": "पहिलो संवैधानिक व्यवस्था"
+    },
+    "description": {
+      "en": "Nepal Government Act 2004 BS, under Article 12, made first provision for appointment of Chief Legal Advisors (Pradhan Kanuni Sallahakar). However, the Act was never implemented.",
+      "ne": "नेपाल सरकार वैधानिक कानुन, २००४ को धारा १२ मा प्रधान कानुनी सल्लाहकारहरुको नियुक्ति गर्ने व्यवस्था गरियो। तर यो कानुन कार्यान्वयनमा नआएकोले कुनै नियुक्ति भएन।"
+    },
+    "category": "constitutional"
+  },
+  {
+    "year": "1951 | २००८",
+    "title": {
+      "en": "First Attorney General Provision",
+      "ne": "पहिलो महान्यायाधिवक्ता व्यवस्था"
+    },
+    "description": {
+      "en": "Nepal Pradhan Nyayalaya Act 2008 BS (First Amendment 2009) made first provision for Attorney General position, defining roles including legal advice to government and court representation.",
+      "ne": "नेपाल प्रधान न्यायालय ऐन, २००८ को पहिलो संशोधन २००९ ले पहिलो पटक एटर्नी जनरल (महान्यायाधिवक्ता) को व्यवस्था गरी सरकारलाई कानुनी राय दिने र अदालतमा बहस पैरवी गर्ने जिम्मेवारी तोक्यो।"
+    },
+    "category": "legal"
+  },
+  {
+    "year": "1955 | २०१२",
+    "title": {
+      "en": "Prosecution System Reform",
+      "ne": "अभियोजन प्रणाली सुधार"
+    },
+    "description": {
+      "en": "Justice Administration (Reorganization) Act 2012 BS introduced the system of Pleader and Prosecutor for government cases investigation and prosecution. This was the first acceptance of prosecution system, though not implemented.",
+      "ne": "न्याय प्रशासन (पुनर्गठन) ऐन २०१२ ले प्लिडर तथा प्रोसिक्युटर (अभियोक्ता) को व्यवस्था गरी सरकारी मुद्दाको तहकिकात र अभियोजनको आधुनिक प्रणालीको शुरुवात गर्यो। तर यो व्यवस्था कार्यान्वयन हुन सकेन।"
+    },
+    "category": "reform"
+  },
+  {
+    "year": "1956 | २०१३",
+    "title": {
+      "en": "Government Advocate Appointment",
+      "ne": "सरकारी अधिवक्ताको नियुक्ति"
+    },
+    "description": {
+      "en": "Supreme Court Act 2013 BS was enacted. Government Advocate was appointed in Shrawan 2013 BS under this Act to represent government in constitutional cases.",
+      "ne": "सर्वोच्च अदालत ऐन, २०१३ जारी भई सोही अन्तर्गत २०१३ साल श्रावण महिनामा संवैधानिक विवादमा सरकारको प्रतिनिधित्व गर्न गभर्मेन्ट एड्भोकेटको नियुक्ति गरियो।"
+    },
+    "category": "institutional"
+  },
+  {
+    "year": "1959 | २०१६",
+    "title": {
+      "en": "Executive Attorney General",
+      "ne": "कार्यकारी महान्यायाधिवक्ता"
+    },
+    "description": {
+      "en": "Attorney General was appointed through executive decision in Bhadra 2016 BS, establishing Attorney General's Office as central body for government attorneys.",
+      "ne": "२०१६ साल भाद्र महिनामा कार्यकारिणी निर्णयबाट एटर्नी जनरलको नियुक्ति भई महान्यायाधिवक्ताको कार्यालय सरकारी वकीलको केन्द्रीय निकायको रूपमा स्थापना भयो।"
+    },
+    "category": "establishment"
+  },
+  {
+    "year": "1960 | २०१७",
+    "title": {
+      "en": "Government Cases Act",
+      "ne": "सरकारी मुद्दा ऐन"
+    },
+    "description": {
+      "en": "Government Cases Act 2017 BS defined government attorney for first time. Established investigation and prosecution procedures for government cases as per Schedule 1 and 2. Government Attorney Rules 2018 BS detailed the roles and responsibilities.",
+      "ne": "सरकारी मुद्दा सम्बन्धी ऐन, २०१७ ले पहिलो पटक सरकारी वकीलको परिभाषा गर्यो। ऐनको अनुसूची १ र २ का मुद्दाहरूको अनुसन्धान र अभियोजन प्रक्रिया निर्धारण गर्यो। सरकारी वकील सम्बन्धी नियमावली, २०१८ ले विस्तृत काम, कर्तव्य र अधिकार तोक्यो।"
+    },
+    "category": "legal"
+  },
+  {
+    "year": "1971 | २०२८",
+    "title": {
+      "en": "New Government Attorney Rules",
+      "ne": "नयाँ सरकारी वकील नियमावली"
+    },
+    "description": {
+      "en": "New Government Attorney Rules 2028 BS replaced old rules of 2018 BS. Defined government concern cases and established institutional structure of government attorney offices.",
+      "ne": "सरकारी वकील सम्बन्धी नियमावली, २०२८ जारी भई २०१८ को नियमावली खारेज गर्यो। सरकारी सरोकारका मुद्दाको परिभाषा र सरकारी वकील कार्यालयको संस्थागत संरचना स्थापना गर्यो।"
+    },
+    "category": "institutional"
+  },
+  {
+    "year": "1990 | २०४७",
+    "title": {
+      "en": "Constitutional Enhancement",
+      "ne": "संवैधानिक सुदृढीकरण"
+    },
+    "description": {
+      "en": "Constitution of Nepal 2047 BS, Article 110 enhanced Attorney General's role. Made final authority in government cases and chief legal advisor to government. Granted right to appear in any court.",
+      "ne": "नेपाल अधिराज्यको संविधान, २०४७ को धारा ११० ले महान्यायाधिवक्तालाई सरकारको मुख्य कानूनी सल्लाहकार बनायो। सरकारी मुद्दा चलाउने नचलाउने अन्तिम अधिकार र जुनसुकै अदालतमा उपस्थित हुन पाउने अधिकार प्रदान गर्यो।"
+    },
+    "category": "constitutional"
+  },
+  {
+    "year": "2007 | २०६३",
+    "title": {
+      "en": "Interim Constitution Provisions",
+      "ne": "अन्तरिम संविधान व्यवस्था"
+    },
+    "description": {
+      "en": "Interim Constitution 2063 BS, Article 135 added new responsibilities including monitoring implementation of Supreme Court interpretations and protecting human rights of detainees.",
+      "ne": "नेपालको अन्तरिम संविधान, २०६३ को धारा १३५ ले सर्वोच्च अदालतको व्याख्याको कार्यान्वयन अनुगमन र थुनुवाको मानव अधिकार संरक्षण जस्ता नयाँ जिम्मेवारी थप्यो।"
+    },
+    "category": "constitutional"
+  },
+  {
+    "year": "2015 | २०७२",
+    "title": {
+      "en": "Current Constitutional Framework",
+      "ne": "वर्तमान संवैधानिक संरचना"
+    },
+    "description": {
+      "en": "Constitution of Nepal, Articles 157-159 established current framework. Attorney General appointed by President on PM's recommendation. Given status equal to Supreme Court Justice with comprehensive authority over public prosecution.",
+      "ne": "नेपालको संविधानको धारा १५७-१५९ ले वर्तमान व्यवस्था गर्यो। प्रधानमन्त्रीको सिफारिसमा राष्ट्रपतिबाट महान्यायाधिवक्ताको नियुक्ति हुने, सर्वोच्च अदालतको न्यायाधीश सरहको सुविधा र सार्वजनिक अभियोजनमा व्यापक अधिकार प्रदान गर्यो।"
+    },
+    "category": "constitutional"
   }
+]
 };
 const CategoryIcon = ({ category }) => {
   const iconClass = "w-5 h-5"; // Reduced icon size
