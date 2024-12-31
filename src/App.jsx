@@ -109,8 +109,8 @@ const timelineGroups = {
   }
     ]
   },
-  administrationreform: {
-    id: 'administration reform',
+  administrationReform: {
+    id: 'administrationReform',
     title: {
       en: 'Administration Reforms in Nepal',
       ne: 'नेपालमा प्रशासन सुधार'
