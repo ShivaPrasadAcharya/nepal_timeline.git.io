@@ -413,66 +413,8 @@ category: "pay-commission"
     ]
   }
 };
-// Custom Dropdown Component
-const CustomDropdown = ({ value, onChange, options, language }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const handleSelect = (optionId) => {
-    onChange(optionId);
-    setIsOpen(false);
-  };
-
-  const getCurrentTitle = () => {
-    const currentOption = options.find(opt => opt.id === value);
-    return language === 'en' ? currentOption.title.en : currentOption.title.ne;
-  };
-
-  return (
-    <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 px-4 py-2 rounded-lg bg-white border border-blue-200 hover:bg-blue-50 transition-colors min-w-[200px]"
-      >
-        <span className="text-blue-600 font-medium">{getCurrentTitle()}</span>
-        <ChevronDown 
-          className={`w-4 h-4 text-blue-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
-        />
-      </button>
-      
-      {isOpen && (
-        <div className="absolute top-full mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-          {options.map((option) => (
-            <button
-              key={option.id}
-              onClick={() => handleSelect(option.id)}
-              className={`w-full text-left px-4 py-2 hover:bg-blue-50 transition-colors ${
-                value === option.id ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
-              } ${option.id === options[options.length - 1].id ? 'rounded-b-lg' : ''} 
-                ${option.id === options[0].id ? 'rounded-t-lg' : ''}`}
-            >
-              {language === 'en' ? option.title.en : option.title.ne}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
 const CategoryIcon = ({ category }) => {
-  const iconClass = "w-5 h-5";
+  const iconClass = "w-5 h-5"; // Reduced icon size
   const getColor = () => {
     switch (category) {
       case 'complaint': return 'text-red-500';
@@ -648,7 +590,6 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-6 px-3">
       <div className="w-full max-w-3xl mx-auto mb-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-          {/* Language Toggle */}
           <button 
             onClick={toggleLanguage}
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200"
@@ -659,17 +600,24 @@ function App() {
             </span>
           </button>
 
-          {/* Custom Timeline Selection Dropdown */}
-          <CustomDropdown
-            value={activeTimeline}
-            onChange={setActiveTimeline}
-            options={Object.values(timelineGroups)}
-            language={language}
-          />
+          <div className="flex gap-2 flex-wrap justify-center">
+            {Object.values(timelineGroups).map((timeline) => (
+              <button
+                key={timeline.id}
+                onClick={() => setActiveTimeline(timeline.id)}
+                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                  activeTimeline === timeline.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-blue-600 hover:bg-blue-50'
+                } border border-blue-200`}
+              >
+                {language === 'en' ? timeline.title.en : timeline.title.ne}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Timelines */}
       {Object.values(timelineGroups).map((timeline) => (
         <Timeline
           key={timeline.id}
