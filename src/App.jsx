@@ -540,6 +540,7 @@ category: "pay-commission"
     "category": "constitutional"
   }
 ]
+ }
 };
 const CategoryIcon = ({ category }) => {
   const iconClass = "w-5 h-5"; // Reduced icon size
