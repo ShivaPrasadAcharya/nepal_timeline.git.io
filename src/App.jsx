@@ -131,7 +131,7 @@ const timelineGroups = {
     },
     // Add more entries...
   ]
-}
+},
   // Add more timeline groups as needed
 };
 
